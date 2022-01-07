@@ -2,9 +2,20 @@ from tkinter import *
 from math import *
 import matplotlib.pyplot as plt
 import numpy as np
-
+global D,t
+D=-1
+t="Нет решений"
 def lahenda():    
     if (a.get()!="" and b.get()!="" and c.get()!=""):
+        if (a.get()==0 and b.get()==0 and c.get()==0):
+            vastus.configure(text=f"Все 3 аргумента не могут быть 0")
+            a.configure(bg="red")
+            b.configure(bg="red")
+            c.configure(bg="red")
+        elif a.get()==0:
+            vastus.configure(text=f"Тут не может быть 0")
+            a.configure(bg="red")
+            graf=False
         #if type!
         a_=float(a.get())
         b_=float(b.get())
@@ -34,7 +45,27 @@ def lahenda():
          if c.get()=="":
             c.configure(bg="grey")
     return graf,D,t
-          
+def graafik():
+    graf,D,t=lahenda()
+    if flag==True:
+        a_=float(a.get())
+        b_=float(b.get())
+        c_=float(c.get())
+        x0=(-b_)/(2*a_)
+        y0=a_*x0*x0+b_*x0+c_
+        x = np.arange(x0-10, x0+10, 0.5)#min max step
+        y=a_*x*x+b_*x+c_
+        fig = plt.figure()
+        plt.plot(x, y,'b:o', x0, y0,'g-d')
+        plt.title('Квадратное уравнение')
+        plt.ylabel('y')
+        plt.xlabel('x')
+        plt.grid(True)
+        plt.show()
+        text=f"Вершина параболлы ({x0},{y0})"
+    else:
+        text=f"График нет возможности построить"
+    vastus.configure(text=f"D={D}\n{t}\n{text}")
 okno=Tk()
 okno.geometry("1000x600")
 okno.title("Квадратные уравнения")
@@ -57,7 +88,9 @@ y.pack(side=LEFT)
 
 knopka=Button(okno,text="Решить", font="Arial 20",bg="white",command=lahenda)
 knopka.pack(side=LEFT)
-
+knopka1=Button(okno,text="График", font="Arial 20",bg="white",command=graafik)
+knopka1(side=LEFT)
+#knopka1.bind("<Button-1>",lahenda)
 
 okno.mainloop()
 
