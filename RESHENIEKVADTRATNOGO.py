@@ -4,28 +4,30 @@ import matplotlib.pyplot as plt
 import numpy as np
 global D,t
 D=-1
-t="Нет решений"
-def lahenda():    
+t="Нет решений!"
+def lahenda(): 
+    global D,t
     if (a.get()!="" and b.get()!="" and c.get()!=""):
-        if (a.get()==0 and b.get()==0 and c.get()==0):
+        if (float(a.get())==0 and float(b.get())==0 and float(c.get())==0):
             vastus.configure(text=f"Все 3 аргумента не могут быть 0")
             a.configure(bg="red")
             b.configure(bg="red")
             c.configure(bg="red")
-        elif a.get()==0:
+            graf=False
+        elif (a.get()==0 and b.get()==0 and c.get()==0):
             vastus.configure(text=f"Тут не может быть 0")
             a.configure(bg="red")
             graf=False
-        #if type!
-        a_=float(a.get())
-        b_=float(b.get())
-        c_=float(c.get())
-        D=b_*b_-4*a_*c_
-        if D>0:
-            x1_=round((-1*b_+sqrt(D))/(2*a_),2)
-            x2_=round((-1*b_+sqrt(D))/(2*a_),2)
-            t=f"X1={x1_}, \nX2={x2_}"
-            graf=True
+        elif (a.get()==0 and b.get()==0 and c.get()==0):
+            a_=float(a.get())
+            b_=float(b.get())
+            c_=float(c.get())
+            D=b_*b_-4*a_*c_
+            if D>0:
+                x1_=round((-1*b_+sqrt(D))/(2*a_),2)
+                x2_=round((-1*b_+sqrt(D))/(2*a_),2)
+                t=f"X1={x1_}, \nX2={x2_}"
+                graf=True
         elif D==0:
             x1_round((-1*b_)/(2*a),2)
             t=f"X1={x1_}"
