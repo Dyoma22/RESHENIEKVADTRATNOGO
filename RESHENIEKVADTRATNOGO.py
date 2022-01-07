@@ -34,8 +34,7 @@ def lahenda():
          if c.get()=="":
             c.configure(bg="grey")
     return graf,D,t
-     
-        
+          
 okno=Tk()
 okno.geometry("1000x600")
 okno.title("Квадратные уравнения")
@@ -56,10 +55,8 @@ c.pack(side=LEFT)
 y=Label(okno,text="=0",font="Arial 20", fg="black")
 y.pack(side=LEFT)
 
-btn=Button(okno,text="Решить", font="Arial 20",bg="white",command=lahenda)
-btn.pack(side=LEFT)
-#btn_g=Button(okno,text="График", font="Calibri 26",bg="green",command=graafik)
-#btn_g.pack(side=LEFT)
+knopka=Button(okno,text="Решить", font="Arial 20",bg="white",command=lahenda)
+knopka.pack(side=LEFT)
 
 
 okno.mainloop()
