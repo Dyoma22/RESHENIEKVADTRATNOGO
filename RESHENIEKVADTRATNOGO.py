@@ -169,7 +169,7 @@ knopka1.pack(side=LEFT)
 buttonveel=Button(okno,text="Увеличить окно",font="Arial 20",bg="white",command=veel)
 buttonveel.pack(side=TOP)
 kalchik=Radiobutton(okno,text="Рыба",font="Arial 20",bg="white",command=kala)
-kalchik.pack
+kalchik.pack(side=TOP)
 kiit=Radiobutton(okno,text="Кит",font="Arial 20",bg="white",command=kqt)
 kiit.pack(side=TOP)
 zontikkk=Radiobutton(okno,text="Зонтик",font="Arial 20", fg="white",command=zontik)
