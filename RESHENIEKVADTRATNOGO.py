@@ -73,6 +73,7 @@ t=0
 def veel():
     global t
     if t==0:
+
         okno.geometry(str(okno.wininfo.width())+"x"+str(okno.wininfo_height()+200))
         buttonveel.config(text="Уменьшить окно")
         t=1
@@ -80,6 +81,48 @@ def veel():
         okno.geometry(str(okno.winfo.width())+"x"+str(okno.wininfo_height()-200))
         buttonveel.config(text="Увеличить окно")
         t=0
+def kala():
+    x1=np.arange(0,9,0.5)#min max step
+    y1=(2/27)*x1*x1-3
+    x2=np.arange(-10,0,0.5)#min max step
+    y2=0.04*x1*x1-3
+    fig=plt.figure()
+    plt.plot(x1, y1,x2, y2, 'r-d')
+    plt.title('Квадратное уравнение')
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
+def kqt():
+    x1=np.arange(0,9.5,0.5)#min max step
+    y1=(2/27)*x1*x1-3
+    x2=np.arange(-10,0.5,0.5)#min max step
+    y2=0.04*x2*x2-3
+    x3=np.arange(-9,-2.5,0.5)#min max step
+    y3=(2/9)*(x3+6)**2+1
+    x4=np.arange(-3,9.5,0.5)#min max step
+    y4=(-1/12)*(x4-3)**2+6
+    x5=np.arange(5,9,0.5)#min max step
+    y5=(1/9)*(x5-5)**2+2    
+    x6=np.arange(-3,9.5,0.5)#min max step
+    y6=(1/18)*(x6-7)**2+1.5
+    x7=np.arange(-13,-8.5,0.5)#min max step
+    y7=(-0.75)*(x7+11)**2+6
+    x8=np.arange(-15,-12.5,0.5)#min max step
+    y8=(-0.5)*(x8+13)**2+3
+    x9=np.arange(-15,-10,0.5)#min max step
+    y9=[1]*len(x9)
+    x10=np.arange(-3,9.5,0.5)#min max step
+    y10=[3]*len(x10)
+    fig=plt.figure()
+    plt.plot(x1, y1,x2, y2, 'r-d')
+    plt.title('Квадратное уравнение')
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
+
+def zontik():
 
 okno=Tk()
 okno.geometry("1000x600")
@@ -108,7 +151,11 @@ knopka1=Button(okno,text="График", font="Arial 20",bg="white",command=graa
 knopka1.pack(side=LEFT)
 buttonveel=Button(okno,text="Увеличить окно",font="Arial 20",bg="white",command=veel)
 buttonveel.pack(side=TOP)
+kalchik=Radiobutton(okno,text="Рыба",font="Arial 20",bg="white",command=kala)
+kalchik.pack
+kqt=Radiobutton(okno,text="Кит",font="Arial 20",bg="white",command=kqt)
+kqt.pack
 #knopka1.bind("<Button-1>",lahenda)
-
 okno.mainloop()
 
+ 
