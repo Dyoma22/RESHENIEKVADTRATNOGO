@@ -67,7 +67,20 @@ def graafik():
         text=f"Вершина параболлы ({x0},{y0})"
     else:
         text=f"График нет возможности построить"
-    vastus.configure(text=f"D={D}\n{t}\n{text}")
+        vastus.configure(text=f"D={D}\n{t}\n{text}")
+
+t=0
+def veel():
+    global t
+    if t==0:
+        okno.geometry(str(okno.wininfo.width())+"x"+str(okno.wininfo_height()+200))
+        buttonveel.config(text="Уменьшить окно")
+        t=1
+    else:
+        okno.geometry(str(okno.winfo.width())+"x"+str(okno.wininfo_height()-200))
+        buttonveel.config(text="Увеличить окно")
+        t=0
+
 okno=Tk()
 okno.geometry("1000x600")
 okno.title("Квадратные уравнения")
@@ -88,10 +101,13 @@ c.pack(side=LEFT)
 y=Label(okno,text="=0",font="Arial 20", fg="black")
 y.pack(side=LEFT)
 
+
 knopka=Button(okno,text="Решить", font="Arial 20",bg="white",command=lahenda)
 knopka.pack(side=LEFT)
 knopka1=Button(okno,text="График", font="Arial 20",bg="white",command=graafik)
 knopka1.pack(side=LEFT)
+buttonveel=Button(okno,text="Увеличить окно",font="Arial 20",bg="white",command=veel)
+buttonveel.pack(side=TOP)
 #knopka1.bind("<Button-1>",lahenda)
 
 okno.mainloop()
