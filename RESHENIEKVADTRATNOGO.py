@@ -68,18 +68,16 @@ def graafik():
     else:
         text=f"График нет возможности построить"
         vastus.configure(text=f"D={D}\n{t}\n{text}")
-
 t=0
 def veel():
     global t
     if t==0:
-
-        okno.geometry(str(okno.wininfo.width())+"x"+str(okno.wininfo_height()+200))
-        buttonveel.config(text="Уменьшить окно")
+        aken.geometry(str(aken.winfo_width()))+"x"+str(aken.winfo_height()+200)
+        veel1.config(text="Увеличить окно")
         t=1
     else:
-        okno.geometry(str(okno.winfo.width())+"x"+str(okno.wininfo_height()-200))
-        buttonveel.config(text="Увеличить окно")
+        aken.geometry(str(aken.winfo_width()))+"x"+str(aken.winfo_height()-200)
+        veel1.config(text="Увеличить окно")
         t=0
 def kala():
     x1=np.arange(0,9,0.5)#min max step
@@ -94,35 +92,54 @@ def kala():
     plt.grid(True)
     plt.show()
 def kqt():
-    x1=np.arange(0,9.5,0.5)#min max step
+    x1=np.arange(0,9,0.5)
     y1=(2/27)*x1*x1-3
-    x2=np.arange(-10,0.5,0.5)#min max step
+    x2=np.arange(-10,0,0.5)
     y2=0.04*x2*x2-3
-    x3=np.arange(-9,-2.5,0.5)#min max step
+    x3=np.arange(-9,-3,0.5)
     y3=(2/9)*(x3+6)**2+1
-    x4=np.arange(-3,9.5,0.5)#min max step
+    x4=np.arange(-3,9,0.5)
     y4=(-1/12)*(x4-3)**2+6
-    x5=np.arange(5,9,0.5)#min max step
-    y5=(1/9)*(x5-5)**2+2    
-    x6=np.arange(-3,9.5,0.5)#min max step
-    y6=(1/18)*(x6-7)**2+1.5
-    x7=np.arange(-13,-8.5,0.5)#min max step
+    x5=np.arange(5,8.3,0.5)
+    y5=(1/9)*(x5-5)**2+2
+    x6=np.arange(5,8.5,0.5)
+    y6=(1/8)*(x6-7)**2+1.5
+    x7=np.arange(-13,-9,0.5)
     y7=(-0.75)*(x7+11)**2+6
-    x8=np.arange(-15,-12.5,0.5)#min max step
+    x8=np.arange(-15,-10,0.5)
     y8=(-0.5)*(x8+13)**2+3
-    x9=np.arange(-15,-10,0.5)#min max step
-    y9=[1]*len(x9)
-    x10=np.arange(-3,9.5,0.5)#min max step
-    y10=[3]*len(x10)
-    fig=plt.figure()
-    plt.plot(x1, y1,x2, y2, 'r-d')
-    plt.title('Квадратное уравнение')
+    x9=np.arange(-15,-10,0.5)
+    y9=1
+    x10=np.arange(3,4,0.5)
+    y10=3
+    fig = plt.figure()
+    plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7,x8,y8,x9,y9,x10,y10)
+    plt.title('Кит')
     plt.ylabel('y')
     plt.xlabel('x')
     plt.grid(True)
     plt.show()
 
 def zontik():
+    x1=np.arange(-12,12,0.5)
+    y1=(-1/18)*x1*x1+12
+    x2=np.arange(-4,4,0.5)
+    y2=(-1/8)*x2*x2+6
+    x3=np.arange(-12,-4,0.5)
+    y3=(-1/8)*(x3+8)**2+6
+    x4=np.arange(4,12,0.5)
+    y4=(-1/8)*(x4-8)**2+6
+    x5=np.arange(-4,-0.3,0.5)
+    y5=2*(x5+3)**2-9
+    x6=np.arange(-4,0.2,0.5)
+    y6=1.5*(x6+3)**2-10
+    fig = plt.figure()
+    plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6)
+    plt.title('Зонтик')
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
 
 okno=Tk()
 okno.geometry("1000x600")
@@ -153,8 +170,10 @@ buttonveel=Button(okno,text="Увеличить окно",font="Arial 20",bg="wh
 buttonveel.pack(side=TOP)
 kalchik=Radiobutton(okno,text="Рыба",font="Arial 20",bg="white",command=kala)
 kalchik.pack
-kqt=Radiobutton(okno,text="Кит",font="Arial 20",bg="white",command=kqt)
-kqt.pack
+kiit=Radiobutton(okno,text="Кит",font="Arial 20",bg="white",command=kqt)
+kiit.pack(side=TOP)
+zontikkk=Radiobutton(okno,text="Зонтик",font="Arial 20", fg="white",command=zontik)
+zontikkk.pack(side=TOP)
 #knopka1.bind("<Button-1>",lahenda)
 okno.mainloop()
 
